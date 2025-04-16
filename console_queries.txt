@@ -1,0 +1,54 @@
+https://ap-south-1.console.aws.amazon.com/appsync/home?region=ap-south-1#/76qco6l23vcn5gfrhuckkjbrt4/v1/queries
+
+mutation createSeller {
+  createSeller(input: {id: "ridhi", email: "ridhi@roaringtides.vit.us"}) {
+    id
+    email
+  }
+}
+
+mutation createProduct {
+  createProduct(input: {id: "", price: 1.5, sellerProductsId: "", url: "", categoryProductsId: ""})
+}
+
+query listCategoriesWithProducts {
+  listCategories {
+    items {
+      id
+      products {
+        items {
+          id
+          price
+          seller {
+            id
+          }
+          url
+        }
+      }
+    }
+  }
+}
+
+query listSellers {
+  listSellers {
+    items {
+      email
+      id
+    }
+  }
+}
+
+query categoryProducts {
+  getCategory(id: "10mm") {
+    products {
+      items {
+        id
+        price
+        seller {
+          id
+        }
+        url
+      }
+    }
+  }
+}
